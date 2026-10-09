@@ -1,0 +1,145 @@
+:root {
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --screen: #111827;
+  --button: #334155;
+  --button-hover: #475569;
+  --operator: #111827;
+  --operator-bg: #f59e0b;
+  --operator-hover: #fbbf24;
+  --control: #ef4444;
+  --control-hover: #f87171;
+  --equals: #062b12;
+  --equals-bg: #22c55e;
+  --equals-hover: #4ade80;
+  --text: #e2e8f0;
+  --shadow: rgba(15, 23, 42, 0.4);
+  --text-sm: clamp(10px, 1vw, 30px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #020617, #1f2937);
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+}
+
+.calculator {
+  width: min(92vw, 430px);
+  background: var(--panel);
+  border-radius: 22px;
+  padding: 1.25rem;
+  box-shadow: 0 20px 45px var(--shadow);
+}
+
+.display {
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem 1.1rem;
+  margin-bottom: 1rem;
+  border-radius: 16px;
+  background: var(--screen);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.btn {
+  border: none;
+  border-radius: 14px;
+  min-height: 64px;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text);
+  background: var(--button);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--button-hover);
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.operator {
+  background: var(--operator-bg);
+  color: var(--operator);
+}
+
+.operator:hover {
+  background: var(--operator-hover);
+}
+
+.control {
+  background: var(--control);
+}
+
+.control:hover {
+  background: var(--control-hover);
+}
+
+.equals {
+  background: var(--equals-bg);
+  color: var(--equals);
+}
+
+.equals:hover {
+  background: var(--equals-hover);
+}
+
+.zero {
+  grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+
+  .calculator {
+    padding: 4rem;
+  }
+
+  .display {
+    font-size: clamp(15px, 2.3rem, 20px);
+  }
+
+  .btn {
+    min-height: 58px;
+    font-size: clamp(15px, 2rem, 20px);
+  }
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .calculator {
+    padding: 4rem;
+  }
+
+  .display {
+    font-size: clamp(15px, 1.8rem, 18px);
+  }
+
+  .btn {
+    min-height: 58px;
+    font-size: clamp(15px, 1.5rem, 18px);
+  }
+
+}
